@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.form-container {
+  width: 100%;
+  max-width: 600px !important;
+  margin: 20px auto;
+  background-color: rgb(253, 254, 255);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 25px;
+  border: 2px solid #9a9a9a38;
+  box-shadow: 5px 5px #3333330b;
+  
+  font-family: 'Montserrat', sans-serif; /* Fuente Forzada */
+  font-size: 100% !important;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+  position: relative;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.form-header a {
+  position: absolute;      
+  left: 0;                  
+  display: flex;
+  align-items: center;
+  color: royalblue;
+  font-size: 1.5em;
+}
+
+.form-header h3 {
+  margin: 0;
+  font-size: 1.7em;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form-row {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+
+.styled-input {
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;        
+  font-size: 1.2em;
+  color: #333;
+  background-color: rgb(253, 254, 255);
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+.styled-input:focus {
+  border-color: royalblue;
+}
+
+.styled-input::placeholder {
+  color: #888;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.add-titular-btn {
+  padding: 0 15px;
+  background-color: #969797;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 2.05em;
+  white-space: nowrap;
+}
+
+.add-titular-btn:hover {
+  padding: 0 15px;
+  background-color: #777a7c;
+  transition: 0.3s;
+}
+
+.submit-btn {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: royalblue;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.submit-btn:hover {
+  background-color: rgb(59, 89, 176);
+}
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: rgb(253, 254, 255);
+  padding: 30px;
+  border-radius: 25px;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex; flex-direction: column; 
+  margin-left: 0; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Ajuste de margen solo para escritorio */
+@media (min-width: 769px) {
+  .modal-content {
+      margin-left: 10.5%; 
+  }
+}
+
+.close-modal-btn {
+  position: absolute; right: 0;
+  background: none; border: none;
+  font-size: 1.5em; cursor: pointer; color: #888;
+  transition: color 0.2s;
+}
+.close-modal-btn:hover { color: #333; }
+
+.modal-actions {
+  display: flex; gap: 10px; margin-top: 10px;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  font-family: 'Montserrat', sans-serif;
+}
+.cancel-btn:hover { background-color: #5a6268; }
+
+
+
+/* --- CORRECCIÓN FECHAS (Form_css.css) --- */
+
+input[type="date"] {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  padding: 12px 15px; /* Para que coincida con tus otros inputs */
+}
+
+
+
+/* RESPONSIVE PARA FORMULARIOS Y MODALES */
+@media (max-width: 600px) {
+  .form-container, 
+  .modal-content {
+      width: 95% !important;
+      max-width: none !important;
+      padding: 15px !important;
+      margin: 10px auto !important;
+  }
+
+  .form-header h3 { font-size: 1.2em; }
+  
+  .styled-input { 
+      font-size: 0.9em; 
+      padding: 8px 10px; 
+      height: auto;
+  }
+
+  .form-row { flex-direction: column; gap: 8px; }
+  
+  .submit-btn {
+      padding: 10px;
+      font-size: 1em;
+  }
+}

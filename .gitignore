@@ -1,0 +1,20 @@
+# --- Dependencias de Node (Frontend) ---
+node_modules/
+build/
+dist/
+.env
+
+# --- Java y Spring Boot (Backend) ---
+target/
+.mvn/
+mvnw
+mvnw.cmd
+*.class
+.classpath
+.project
+.settings/
+
+# --- Sistema Operativo ---
+.DS_Store
+Thumbs.db
+.vscode/

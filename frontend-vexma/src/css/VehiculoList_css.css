@@ -1,0 +1,607 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+.vehiculo-list-container {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Título de la sección */
+.vehiculo-list-container h2 {
+  margin-top: 5%;
+  margin-bottom: 3%;
+  text-align: center; /* Centrado horizontal */
+  font-size: 1.8em;
+  width: 100%;
+}
+
+/* --- ESTILOS PRINCIPALES DE LA LISTA --- */
+.main-vehicle-container {
+  width: 100%;
+  min-height: 100px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(245, 251, 255);
+  color: black;
+  border: 2px solid #22222214;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px #33333347;
+}
+
+.main-vehicle-container:hover {
+  background-color: rgb(250, 253, 255);
+  transform: translateX(2px) translateY(-1px);
+  transition: all 0.3s;
+}
+
+.vehiculo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95% !important;
+}
+
+.acciones-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2%;
+  margin-left: 0%;
+  width: 15%;
+  border-left: 2px solid #99999982;
+  padding-left: 30px;
+  gap: 5px;
+}
+
+.acciones-container button {
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0 !important;
+  border-radius: 8px;
+}
+
+.vehiculo-informacion-container {
+  flex: 2;
+  text-align: left;
+  padding-left: 10px;
+  margin-left: 2%;
+}
+
+#main-car-info {
+  font-size: 1.8em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-weight: 600;
+}
+
+#car-owner {
+  font-size: 1.3em;
+}
+
+#main-car-info-line-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-car-info-line {
+  height: 30px;
+  width: 1px;
+  background-color: #99999970;
+}
+
+.vehiculo-estado-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 100%;
+}
+
+.vehiculo-estado-container p {
+  background-color: #000000dd;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 13px;
+  border: 2px solid #333;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+}
+
+/* --- TARJETAS SUPERIORES (KPIs) --- */
+.vehiculos-agencia {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 100%;
+  font-family: "Montserrat", sans-serif;
+  gap: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.vehiculos-agencia > div {
+  flex: 1;
+  text-align: center;
+}
+
+.vehiculos-agencia-numero {
+  width: 95%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 3em;
+  font-weight: 500;
+  color: black;
+  border: 2px solid #22222214;
+  border-radius: 25px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 5px 5px #79797947;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.vehiculos-agencia-numero.hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 8px #79797960;
+}
+
+.vehiculos-agencia-texto {
+  font-size: 1.5em;
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding-right: 50%;
+  left: 0;
+  right: 0;
+}
+
+.vehiculo-datos-lista-divisor {
+  width: 100%;
+  height: 3px;
+  margin: 3% 0%;
+  background-color: #9e9e9e1e;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  
+  /* --- 1. SECCIÓN DE ARRIBA (KPIS) REORGANIZADA --- */
+  .vehiculos-agencia {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  /* El Capital Total ocupa todo el ancho arriba */
+  .vehiculos-agencia > div:nth-child(1) {
+    grid-column: 1 / -1; 
+  }
+
+  /* Contenedores de las tarjetas de arriba */
+  .vehiculos-agencia > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* La caja blanca del número */
+  .vehiculos-agencia-numero {
+    width: 100%;
+    height: auto;       /* Altura automática, pequeña */
+    min-height: 0;      /* Evita que se estire */
+    font-size: 1.8em;   /* Número legible pero NO gigante */
+    padding: 10px;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  /* Ajuste específico para el Capital que es un número largo */
+  .vehiculos-agencia > div:nth-child(1) .vehiculos-agencia-numero {
+      font-size: 2em; 
+      padding: 15px;
+      font-weight: 700;
+  }
+
+  /* Texto debajo del número (Chiquito) */
+  .vehiculos-agencia-texto {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  /* Divisor casi invisible */
+  .vehiculo-datos-lista-divisor { margin: 10px 0; height: 1px; }
+  .vehiculo-list-container h2 { font-size: 1.4em; margin: 10px 0; }
+
+  /* --- 2. LISTA DE VEHÍCULOS (TARJETAS) --- */
+  .main-vehicle-container {
+    flex-direction: column; 
+    height: auto;           
+    min-height: auto;
+    padding: 15px;
+    gap: 5px;
+    align-items: stretch;
+    text-align: left;
+    /* Sombra suave */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+  }
+
+  .vehiculo-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+    align-items: flex-start;
+  }
+
+  .vehiculo-informacion-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  /* Nombre del auto y Patente */
+  #main-car-info {
+    font-size: 1.1em;    
+    justify-content: space-between;
+    flex-direction: row; 
+    width: 100%;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
+  /* Ocultar divisor vertical de escritorio */
+  #main-car-info > div { display: none !important; }
+
+  /* Patente estilo "Chapa" */
+  #main-car-info span:last-child {
+      background: #f1f5f9;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #333;
+      border: 1px solid #e2e8f0;
+      font-weight: 800;
+  }
+  
+  /* Titular */
+  #car-owner {
+      font-size: 0.9em;
+      color: #64748b;
+  }
+
+  /* Estado "En Agencia" */
+  .vehiculo-estado-container {
+    width: auto;
+    margin: 0;
+    align-self: flex-start; 
+    margin-top: 10px;
+  }
+
+  .vehiculo-estado-container p {
+      font-size: 0.7em;
+      padding: 5px 12px;
+      margin: 0;
+  }
+
+  /* 3. BOTONES (NEGROS Y VISIBLES) */
+  .acciones-container {
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    
+    /* Ubicados a la derecha, subidos para ahorrar espacio */
+    justify-content: flex-end; 
+    gap: 10px;
+    margin-top: -38px; /* Subimos los botones a la línea del estado */
+    position: relative;
+    z-index: 5; /* Asegura que estén "arriba" de todo para poder clickearlos */
+  }
+
+  .acciones-container button {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2em; /* Tamaño del icono */
+      border-radius: 8px;
+      padding: 0; /* IMPORTANTE: Sin padding para que el icono se centre */
+      
+      /* FONDO NEGRO */
+      background-color: #1a1a1a !important; 
+      border: 1px solid #333;
+      
+      /* Sombra para que se despeguen del fondo */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3); 
+      
+      /* Centrado perfecto del icono */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  /* Aseguramos que el icono dentro no tenga margenes raros */
+  .acciones-container button svg {
+      margin: 0;
+      display: block;
+  }
+
+  
+  /* --- MODAL DE STOCK --- */
+  .vehiculo-list-container .modal-box {
+      padding: 10px !important;       /* Relleno mínimo */
+      width: 85% !important;          /* Menos ancho */
+      max-width: 300px !important;    /* Tope de ancho real */
+      font-size: 0.75rem !important;  /* Letra base MUY chica */
+  }
+
+  .vehiculo-list-container .modal-header {
+      margin-bottom: 5px; padding-bottom: 5px; min-height: auto;
+  }
+
+  .vehiculo-list-container .modal-header h3 {
+      font-size: 0.95rem !important; /* Título modal chico */
+      padding: 0 30px;
+  }
+
+  .vehiculo-list-container .close-icon-btn {
+      width: 20px; height: 20px; font-size: 0.8rem;
+  }
+
+  /* Filas */
+  .vehiculo-list-container .modal-vehicle-row {
+      padding: 6px 0; gap: 5px;
+  }
+  
+  .vehiculo-list-container .vehicle-info-left strong { font-size: 0.85rem; }
+  .vehiculo-list-container .vehicle-sub-text { font-size: 0.75rem; height: auto; }
+
+  .vehiculo-list-container .vehicle-days-right {
+      padding: 4px 8px; min-width: auto;
+  }
+  .vehiculo-list-container .vehicle-days-right strong { font-size: 0.9rem; }
+  .vehiculo-list-container .vehicle-days-right small { font-size: 0.65rem; }
+}
+
+/* ------------------------------------------------ */
+/* --- MODAL (TODO CON EM) --- */
+/* ------------------------------------------------ */
+
+.vehiculo-list-container .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.vehiculo-list-container .modal-box {
+  background-color: white;
+  padding: 2em;
+  border-radius: 1.5em;
+  width: 45em !important;
+  max-width: 95%;
+  box-shadow: 0 1em 2.5em rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ESTRUCTURA FLEX PARA QUE LA LISTA CREZCA */
+  display: flex;
+  flex-direction: column;
+  height: 70vh !important; /* Altura Fija Grande */
+
+  font-size: 1em;
+}
+
+.vehiculo-list-container .modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5em;
+  border-bottom: 0.15em solid #e2e8f0;
+  padding-bottom: 1em;
+  position: relative;
+  min-height: 2.5em;
+  flex-shrink: 0; /* No se aplasta */
+}
+
+.vehiculo-list-container .modal-header h3 {
+  margin: 0;
+  color: #000000 !important;
+  font-size: 1.8em !important;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Botón flecha específico para este modal */
+.vehiculo-list-container .close-icon-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3em;
+  height: 3em;
+  font-size: 1em;
+  cursor: pointer;
+
+  color: #878787 !important; /* Color NEGRO forzado */
+  background: transparent !important;
+  border: none !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.vehiculo-list-container .close-icon-btn svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
+}
+
+.vehiculo-list-container .close-icon-btn:hover {
+  color: #353434 !important;
+}
+
+/* LISTA QUE SE ESTIRA */
+.vehiculo-list-container .modal-vehicle-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-right: 0.5em;
+
+  /* MAGIA PARA OCUPAR ESPACIO */
+  flex: 1;
+  overflow-y: auto;
+
+  /* CRÍTICO: Esto anula el límite de 300px del otro archivo */
+  max-height: none !important;
+}
+
+/* Scrollbar */
+.vehiculo-list-container .modal-vehicle-list::-webkit-scrollbar {
+  width: 0.5em;
+}
+.vehiculo-list-container .modal-vehicle-list::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 0.25em;
+}
+
+/* Fila del vehículo */
+.vehiculo-list-container .modal-vehicle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2em 1em;
+  border-bottom: 0.05em solid #edf2f7;
+  transition: background 0.2s;
+  border-radius: 0.5em;
+}
+
+.vehiculo-list-container .modal-vehicle-row:hover {
+  background-color: #f8fbff;
+}
+
+.vehiculo-list-container .modal-vehicle-row:last-child {
+  border-bottom: none;
+}
+
+/* Textos internos del modal */
+.vehiculo-list-container .vehicle-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.vehiculo-list-container .vehicle-info-left strong {
+  font-size: 1.3em;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.vehiculo-list-container .vehicle-sub-text {
+  font-size: 1.1em;
+  color: #5f656c;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  border-left: 0.2em solid rgb(138, 153, 198);
+  height: 1.2em;
+  padding-left: 0.8em;
+}
+
+.vehiculo-list-container .vehicle-days-right {
+  text-align: right;
+  background-color: #f4f8ff60;
+  padding: 0.5em 1em;
+  border-radius: 0.6em;
+  box-shadow: 0.1em 0.1em 0.3em -0.1em #00000065;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 8em;
+}
+
+.vehiculo-list-container .vehicle-days-right strong {
+  color: #071969;
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.vehiculo-list-container .vehicle-days-right small {
+  margin-top: 0.3em;
+  color: #2c343e;
+  font-size: 0.95em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .vehiculo-list-container .modal-vehicle-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8em;
+  }
+  .vehiculo-list-container .vehicle-days-right {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+}

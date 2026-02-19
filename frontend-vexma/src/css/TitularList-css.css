@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.titular-list-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px auto !important;
+    max-width: 1200px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: auto !important;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.titular-list-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: table;
+    margin: 0 auto 20px auto;
+    padding-bottom: 0%;
+}
+
+.main-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.95em;
+    min-width: 400px;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.main-table thead tr {
+    background-color: #8ca9c4;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.main-table th, .main-table td {
+    padding: 12px 15px;
+    text-align: center; 
+}
+
+.main-table td { font-weight: 400; }
+
+.main-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: all 0.2s ease;
+}
+.main-table tbody tr:last-of-type { border-bottom: 2px solid #8ca9c4; }
+.main-table tbody tr:hover { background-color: #e2e8f0; }
+
+.no-data {
+    color: #a0aec0;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.action-btn {
+    width: 50px;
+    height: 48px;
+    background: rgb(0, 0, 0);
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: 0 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.action-btn:hover { box-shadow: 0 4px 6px rgba(82, 82, 82, 0.1); }
+
+.vehicle-count-badge {
+    background-color: #6f98c5 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 5px 25px !important;
+    cursor: pointer;
+    box-shadow: none !important;
+    transition: background 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+.vehicle-count-badge:hover { background-color: #5b81a9 !important; }
+
+/* MODAL */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.modal-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.2s ease-out;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-header {
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 15px; border-bottom: 1px solid #eee;
+    padding-bottom: 10px; position: relative; min-height: 30px;
+}
+
+.modal-header h3 { margin: 0; color: #333; font-size: 1.2rem; text-align: center; }
+
+.close-icon-btn {
+    position: absolute; left: 0; top: 50%; transform: translateY(-60%);
+    background: transparent; border: none; font-size: 1.2rem;
+    cursor: pointer; color: royalblue;
+}
+.close-icon-btn:hover { color: rgb(39, 66, 149); }
+
+.modal-vehicle-list {
+    list-style: none; padding: 0; margin: 0; max-height: 300px; overflow-y: auto;
+}
+
+.modal-vehicle-item {
+    border-bottom: 1px solid #f0f0f0; padding: 10px 0; text-align: center;
+}
+.modal-vehicle-item:last-child { border-bottom: none; }
+
+.modal-vehicle-details {
+    display: block; color: #666; font-size: 0.85em; margin-top: 2px;
+}
+
+.modal-footer {
+    text-align: right; margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee;
+}
+
+.btn-close-modal {
+    padding: 8px 20px; background-color: #6c757d; color: white;
+    border: none; border-radius: 5px; cursor: pointer; font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+.btn-close-modal:hover { background-color: #5a6268; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* RESPONSIVE TITULARES */
+@media (max-width: 768px) {
+    .titular-list-container {
+        width: 100%;
+        padding: 0 5px;
+        margin: 10px auto !important;
+    }
+
+    /* Tabla súper compacta */
+    .main-table {
+        font-size: 0.75rem; /* Letra bien chica */
+        width: 100%;
+    }
+
+    .main-table th, .main-table td {
+        padding: 8px 2px; /* Mínimo espacio lateral */
+        white-space: nowrap; /* Evita que se rompa feo si es posible */
+    }
+
+    /* Botones de acción diminutos */
+    .action-btn {
+        width: 28px;
+        height: 28px;
+        padding: 4px;
+        margin: 0 1px;
+    }
+}

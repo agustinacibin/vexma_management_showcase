@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Eliminar scroll del body */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: aliceblue; 
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* CLAVE: La app no se mueve, solo el contenido interno */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* LAYOUT GENERAL */
+.app-layout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* HEADER FIJO ARRIBA */
+.header-class {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background-color: aliceblue;
+  
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(235, 247, 255, 0.341);
+  z-index: 1000;  
+  box-sizing: border-box;
+}
+
+/* SIDEBAR FIJA A LA IZQUIERDA */
+.sidebar-class {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  bottom: 0;
+  width: 250px;          
+  background-color: aliceblue; 
+  border-right: 1px solid rgba(0, 0, 0, 0.05); 
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 900;
+}
+
+.sidebar-class ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-class li { border-radius: 50px; }
+
+.sidebar-class a {
+  display: flex; align-items: center; gap: 20px;
+  padding: 15px 20px;
+  text-decoration: none; color: #333; font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.sidebar-class a:hover {
+  background-color: #d6e4f2; 
+  color: #293f57;
+  padding-left: 30px;
+}
+
+.active-link { background-color: rgba(0, 0, 0, 0.05); }
+
+
+/* CONTENEDOR PRINCIPAL (ESCRITORIO) */
+.main-content-container {
+  margin-top: 90px;  
+  margin-left: 250px; 
+  
+  width: calc(100% - 250px);
+  height: calc(100vh - 90px); /* Altura total menos el header */
+  
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.main-content-container > div {
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+/* LOGO */
+.logo { height: 6em; padding: 1.5em; will-change: filter; transition: filter 300ms; }
+.logo:hover { filter: drop-shadow(0 0 2em #646cffaa); }
+.logo.react:hover { filter: drop-shadow(0 0 2em #61dafbaa); }
+@keyframes logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: no-preference) { a:nth-of-type(2) .logo { animation: logo-spin infinite 20s linear; } }
+.card { padding: 2em; }
+.read-the-docs { color: #888; }
+
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgb(235, 247, 255); }
+::-webkit-scrollbar-thumb { background-color: #cbd5e0; border-radius: 6px; border: 2px solid rgb(235, 247, 255); }
+::-webkit-scrollbar-thumb:hover { background-color: #a0aec0; }
+* { scrollbar-width: thin; scrollbar-color: #cbd5e0 rgb(235, 247, 255); }
+
+
+/* RESPONSIVE - BARRA INFERIOR Y SCROLL  */
+@media (max-width: 768px) {
+  
+  .header-class {
+    font-size: 24px;
+    height: 70px;
+    padding: 0 10px;
+  }
+
+  .sidebar-class {
+    display: flex; 
+    position: fixed;
+    top: auto;    
+    bottom: 0;    
+    left: 0;
+    width: 100%;  
+    height: 70px; 
+    
+    border-right: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); 
+    padding-top: 0;
+    background-color: #fff; 
+    
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; 
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+  }
+
+  .sidebar-class nav { width: 100%; }
+  
+  .sidebar-class ul { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-class li { margin: 0; }
+
+  .sidebar-class a {
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    font-size: 0.75em; 
+    text-align: center;
+  }
+  
+  .sidebar-class li > span { display: none; }
+
+  /* --- SCROLL EN MÓVIL --- */
+  .main-content-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+    margin-top: 70px;
+    
+    height: calc(100vh - 70px); 
+    height: calc(100dvh - 70px); 
+    
+    overflow-y: auto; 
+    
+    padding-bottom: 120px !important; 
+    
+    box-sizing: border-box;
+  }
+}
+
+/* VISTA DE NOTEBOOK / LAPTOP (Pantallas medianas) */
+@media (min-width: 769px) and (max-width: 1440px) {
+    
+    @media (min-width: 769px) and (max-width: 1500px) {
+    
+    /* 1. Achicamos la base de toda la página */
+    html {
+        font-size: 13px !important; /* Normalmente es 16px. Esto baja todo un ~20% */
+    }
+
+    /* 2. Forzamos a los contenedores principales a respetar la reducción */
+    /* Usamos "body" delante para ganar prioridad sobre otros archivos */
+    body .form-container,
+    body .vehiculo-list-container,
+    body .titular-list-container,
+    body .detalle-container,
+    body .doc-container,
+    body .doc-list-container {
+        font-size: 0.9em !important; /* Un 10% extra menos sobre la base */
+        max-width: 90% !important;   /* Que no toquen los bordes */
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 3. Ajustes específicos para que no se vean gigantes */
+    
+    /* Formulario: Vencemos el "100% !important" que tenías */
+    body .form-container {
+        padding: 20px !important;
+        width: 80% !important;
+    }
+    
+    /* Modales: Que no ocupen toda la pantalla */
+    body .modal-box,
+    body .modal-content {
+        font-size: 0.9em !important;
+        transform: scale(0.9); /* Truco: los achica visualmente un 10% más */
+        max-height: 85vh; /* Evita que se corten verticalmente */
+    }
+
+    /* Tarjetas de Detalle y Documentación */
+    body .detalle-card,
+    body .doc-card,
+    body .list-card {
+        padding: 15px !important;
+    }
+
+    /* Inputs y Botones más compactos */
+    input, select, button, .styled-input {
+        font-size: 0.9em !important;
+        padding: 8px !important;
+        height: auto !important;
+    }
+    
+    /* Achicar títulos exagerados */
+    h2, h3, .page-title, .titulo-principal {
+        font-size: 1.5em !important;
+        margin-bottom: 15px !important;
+    }
+}
+}
