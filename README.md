@@ -8,7 +8,7 @@ Permite administrar vehículos, titulares, actividades, documentación y estados
 
 ## Tecnologías Utilizadas
 
-###Backend
+### Backend
 - Java 21
 - Spring Boot
 - Spring Data JPA (Hibernate)
@@ -16,7 +16,7 @@ Permite administrar vehículos, titulares, actividades, documentación y estados
 - MySQL
 - Maven
 
-###Frontend
+### Frontend
 - React (Vite)
 - React Router
 - Axios
