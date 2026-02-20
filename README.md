@@ -8,7 +8,7 @@ Permite administrar vehículos, titulares, actividades, documentación y estados
 
 ## Tecnologías Utilizadas
 
-Backend
+###Backend
 - Java 21
 - Spring Boot
 - Spring Data JPA (Hibernate)
@@ -16,7 +16,7 @@ Backend
 - MySQL
 - Maven
 
-Frontend
+###Frontend
 - React (Vite)
 - React Router
 - Axios
@@ -67,9 +67,7 @@ Authorization: Bearer <token>
 ```
 5. Filtro JWT en backend valida cada request protegida.
 
-Endpoints protegidos:
-
-`/api/**`
+Endpoints protegidos: `/api/**`
 
 ---
 
