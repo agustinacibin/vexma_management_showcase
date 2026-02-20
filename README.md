@@ -204,7 +204,7 @@ http://localhost:5173
 
 ## Autor
 
-** María Agustina Cibin **
-Ingeniería de Software
-Proyecto profesional y de portfolio.
+* María Agustina Cibin
+* Ingeniería de Software
+* Proyecto profesional y de portfolio.
 
