@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5173/api/vehiculos'
+const API_URL = 'http://localhost:8080/api/vehiculos'
 
 class VehiculoService {
     obtenerTodos(){

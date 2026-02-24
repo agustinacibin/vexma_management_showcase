@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5173/api/actividades'
+const API_URL = 'http://localhost:8080/api/actividades'
 
 class ActividadService {
 

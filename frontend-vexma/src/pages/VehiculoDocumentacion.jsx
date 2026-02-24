@@ -102,36 +102,36 @@ function VehiculoDocumentacion() {
   }
   
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault()
 
-    const datosLimpios = { ...formulario };
-
-    Object.keys(datosLimpios).forEach((key) => {
-      if (key.startsWith("fecha") && datosLimpios[key] === "") {
-        datosLimpios[key] = null;
-      }
-    });
-
-    const payload = { 
-        ...datosLimpios, 
-        vehiculo: { id: Number(id) } 
-    };
-
-    try {
-      if (formulario.id) {
-        await DocumentacionService.actualizar(payload);
-      } else {
-        await DocumentacionService.guardar(payload);
-      }
-      alert("Documentación guardada correctamente");
-      cargarDatos();
-    } catch (error) {
-      console.error("Detalle del error:", error);
-      // Muestra el mensaje real del servidor si existe
-      alert("Error al guardar: " + (error.response?.data || "Ver consola para detalles"));
+  const datosLimpios = { ...formulario }
+  
+  itemsDocumentacion.forEach(item => {
+    if (!datosLimpios[item.name] || datosLimpios[item.dateKey] === "") {
+      datosLimpios[item.dateKey] = null
     }
+  })
+
+  const payload = { 
+      ...datosLimpios,
+      id: formulario.id ? Number(formulario.id) : null,
+      vehiculo: { id: Number(id) } 
   }
+
+  try {
+    if (formulario.id) {
+      await DocumentacionService.actualizar(payload)
+    } else {
+      await DocumentacionService.guardar(payload)
+    }
+    alert("Documentación guardada con éxito")
+    cargarDatos()
+  } catch (error) {
+    console.error("Error al guardar:", error.response?.data || error.message)
+    alert("Error al guardar. Revisa la consola.")
+  }
+}
 
   if (loading) return <div className="doc-loading">Cargando...</div>;
   if (!vehiculo)

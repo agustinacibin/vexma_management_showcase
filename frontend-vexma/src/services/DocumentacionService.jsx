@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = "http://localhost:5173//api/documentaciones"
+const API_URL = "http://localhost:8080/api/documentaciones"
 
 class DocumentacionService{
 

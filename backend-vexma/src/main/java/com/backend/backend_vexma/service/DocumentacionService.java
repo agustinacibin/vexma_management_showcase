@@ -11,66 +11,62 @@ import com.backend.backend_vexma.repository.DocumentacionRepository;
 
 @Service
 public class DocumentacionService {
-    
+
     private final DocumentacionRepository documentacionRepository;
 
     public DocumentacionService(DocumentacionRepository documentacionRepository) {
         this.documentacionRepository = documentacionRepository;
     }
 
-    public List<Documentacion> obtenerDocumentacionToda(){
+    public List<Documentacion> obtenerDocumentacionToda() {
         return documentacionRepository.findAll();
     }
 
-    public Optional<Documentacion> obtenerDocumentacionPorId(Long id){
+    public Optional<Documentacion> obtenerDocumentacionPorId(Long id) {
         return documentacionRepository.findById(id);
     }
 
     @Transactional
-    public Documentacion guardarDocumentacion(Documentacion docNuevo){
-        
-        Optional<Documentacion> docExistente = documentacionRepository.findByVehiculo_Id(docNuevo.getVehiculo().getId());
-
-        if (docExistente.isPresent()){
-            Documentacion docDb = docExistente.get();
-            
-            docDb.setFormulario08(docNuevo.getFormulario08());
-            docDb.setFechaFormulario08(docNuevo.getFechaFormulario08());
-            
-            docDb.setCedulaVerde(docNuevo.getCedulaVerde());
-            docDb.setFechaCedulaVerde(docNuevo.getFechaCedulaVerde());
-            
-            docDb.setTitulo(docNuevo.getTitulo());
-            docDb.setFechaTitulo(docNuevo.getFechaTitulo());
-            
-            docDb.setVerificacionPolicial(docNuevo.getVerificacionPolicial());
-            docDb.setFechaVerificacionPolicial(docNuevo.getFechaVerificacionPolicial());
-            
-            docDb.setInformeDominioRnpa(docNuevo.getInformeDominioRnpa());
-            docDb.setFechaInformeDominioRnpa(docNuevo.getFechaInformeDominioRnpa());
-            
-            docDb.setInformeMultasRnpa(docNuevo.getInformeMultasRnpa());
-            docDb.setFechaInformeMultasRnpa(docNuevo.getFechaInformeMultasRnpa());
-            
-            docDb.setEstadoImpositivo(docNuevo.getEstadoImpositivo());
-            docDb.setFechaEstadoImpositivo(docNuevo.getFechaEstadoImpositivo());
-            
-            docDb.setManuales(docNuevo.getManuales());
-            docDb.setFechaManuales(docNuevo.getFechaManuales());
-            
-            docDb.setDuplicadoLlaves(docNuevo.getDuplicadoLlaves());
-            docDb.setFechaDuplicadoLlaves(docNuevo.getFechaDuplicadoLlaves());
-            
-            docDb.setItv(docNuevo.getItv());
-            docDb.setFechaItv(docNuevo.getFechaItv());
-
-            return documentacionRepository.save(docDb);
-        } else {
+    public Documentacion guardarDocumentacion(Documentacion docNuevo) {
+        if (docNuevo.getId() != null && documentacionRepository.existsById(docNuevo.getId())) {
             return documentacionRepository.save(docNuevo);
         }
+
+        Optional<Documentacion> docExistente = documentacionRepository.findByVehiculo_Id(docNuevo.getVehiculo().getId());
+
+        if (docExistente.isPresent()) {
+            Documentacion docDb = docExistente.get();
+            actualizarDatos(docDb, docNuevo);
+            return documentacionRepository.save(docDb);
+        }
+
+        return documentacionRepository.save(docNuevo);
     }
 
-    public void borrarDocumentacion(Long id){
+    private void actualizarDatos(Documentacion destino, Documentacion origen) {
+        destino.setFormulario08(origen.getFormulario08());
+        destino.setFechaFormulario08(origen.getFechaFormulario08());
+        destino.setCedulaVerde(origen.getCedulaVerde());
+        destino.setFechaCedulaVerde(origen.getFechaCedulaVerde());
+        destino.setTitulo(origen.getTitulo());
+        destino.setFechaTitulo(origen.getFechaTitulo());
+        destino.setVerificacionPolicial(origen.getVerificacionPolicial());
+        destino.setFechaVerificacionPolicial(origen.getFechaVerificacionPolicial());
+        destino.setInformeDominioRnpa(origen.getInformeDominioRnpa());
+        destino.setFechaInformeDominioRnpa(origen.getFechaInformeDominioRnpa());
+        destino.setInformeMultasRnpa(origen.getInformeMultasRnpa());
+        destino.setFechaInformeMultasRnpa(origen.getFechaInformeMultasRnpa());
+        destino.setEstadoImpositivo(origen.getEstadoImpositivo());
+        destino.setFechaEstadoImpositivo(origen.getFechaEstadoImpositivo());
+        destino.setManuales(origen.getManuales());
+        destino.setFechaManuales(origen.getFechaManuales());
+        destino.setDuplicadoLlaves(origen.getDuplicadoLlaves());
+        destino.setFechaDuplicadoLlaves(origen.getFechaDuplicadoLlaves());
+        destino.setItv(origen.getItv());
+        destino.setFechaItv(origen.getFechaItv());
+    }
+
+    public void borrarDocumentacion(Long id) {
         documentacionRepository.deleteById(id);
     }
 }
